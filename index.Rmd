@@ -1,0 +1,86 @@
+---
+title       : Software Implementation Project Cost Prediction
+subtitle    : 
+author      : "Alexander Kiskin"
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Overview
+
+Our company is in business software market for 15 years. 
+
+Still the toughest question is "What is the cost of software implementation project in our company?"
+
+So based on our experience and thanks to machine learning we are able to give some reference point - just "lighten up the way" in assessing such costs.
+
+Welcome to our calculations!
+
+---
+
+## Cost composition
+
+Cost of software implementation project consists of:
+
+1. Licenses costs
+
+2. Development costs
+
+3. Training costs (both internal and external)
+
+4. Organizational changes costs
+
+5. Lost profits
+
+Our model built on 15 year experience can assess some of theese values on the foundation of company size and currently used software.
+
+
+---
+
+## Examples
+
+Inputs that we need are:
+
+1. Total number of employees 
+
+2. Expected number of users of the new software  
+
+3. Number of users of current software (if any) 
+
+For example, let us take small company of 100 employess, 20 of which are using current software that needs to be updated.
+
+```{r echo=FALSE,results='hide'}
+totalemployees = 100;
+futuresoftwareusers = 20;
+currentsoftwareusers = 20;
+
+licensescost = futuresoftwareusers * 100;
+developmentcosts = futuresoftwareusers * 100;
+trainingcosts = futuresoftwareusers * 15;
+organizationalchangescosts = (currentsoftwareusers/totalemployees)*100*200;
+prediction <- licensescost + developmentcosts + trainingcosts + organizationalchangescosts
+```
+
+Then total cost will be `r prediction` Euro.
+
+---
+
+## Other
+
+### References 
+This is our internal study, so we do not depend on any other sources.
+
+Thanks to RStudio developers and ShinyApps for providing platform for this presentation.
+
+
+### Contacts
+For any additional information - please contact our R&D dep. akiskin@1cbit.ru
+
+
+---
+
